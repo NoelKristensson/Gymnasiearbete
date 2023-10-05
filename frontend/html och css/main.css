@@ -1,0 +1,72 @@
+body /*Ändrar allting på hemsidan om inget annat anges av ett annat element*/{
+    margin: 0; /*Ser till att ingenting på sidan hamnar utanför skärmen*/
+    padding: 0;/*Gör samma sak som margin: 0; fast för padding*/
+    font-family: 'Times New Roman', Times, serif; /*Ändrar fonten på sidan till Times New Roman*/
+    background-color: #e5e5e5; /*Lägger bakgrundsfärg till sidan, alla andra element kommer "skriva över" bakgrundsfärgen*/
+}
+
+.navbar /*Ändrar designen på navbaren*/{
+    background-color: #333; /*Backrundsfärg för navbaren*/
+    overflow: hidden; /*Saker i navbaren som hamnar utanför navbaren blir gömda och syns inte*/
+    max-width: 1600px; /*Ändrar bredden på navbaren*/
+    margin: 0 auto; /*Gör så att webbläsaren automatiskt placerar navbaren i mitten horisontellt*/
+}
+
+.navbar-brand /*Ändrar designen för loggan i navbaren*/{
+    float: left; /*Placerar loggan till vänster i navbaren*/
+    display: block; /*Lättare att flytta runt loggan*/
+    padding: 2.3pc 5pc; /*Lägger till utrymme runt loggan*/
+    text-align: center;
+    color: white;
+    text-decoration: none; /*Eftersom navbar-brand är en länk är standarden att det är en linje under texten för att indikera att det är en länk man kan klicka på, detta tar bort den linjen.*/
+}
+
+.navbar-menu /*Ändrar designen på menyn med länkar i navbaren*/{
+    margin: 0; /*Ser till att länkarna inte hamnar utanför navbaren*/
+    padding: 2.3pc 16px; /*Lägger till utrymme runt länkarna*/
+    float: left; /*Positionerar länkarna till vänster i navbaren*/
+    list-style-type: none; /*Tar bort alla bullet points som egentligen skulle vara där framför länkarna*/
+}
+
+.home /*Ändrar "Hem" länken i navbaren*/{
+    margin-left: 2.5em; /*Flyttar hem länken bort ifrån loggan så att navbaren känns mer öppen*/
+}
+
+.services, .about, .contact /*Ändrar de andra länkarna i navbaren*/{
+    margin-left: 2em; /*Ökar avståndet mellan de olika länkarna i navbaren så den blir mer öppen*/
+}
+
+.navbar-menu li /*Ändrar alla länkarna i navbaren*/{
+    float: left; /*Gör så att länkarna är positionerade sida vid sida och inte som en vertikal lista*/
+}
+
+.navbar-menu li a /*Ändrar hur texten på länkarna beter sig*/{
+    display: block; /*Ytan runt länken går att klicka*/
+    text-align: center; /*Centrerar texten*/
+    position: relative; /*Linjen under texten positioneras relaterat till positionen av länken*/
+    color: white; /*Vit text*/
+    text-decoration: none; /*Tar bort understrykningen på länken*/
+}
+
+.navbar-menu li a:hover /*Ändrar designen på länktexten när muspekaren är på länken*/{
+    color: black; /*Gör texten svart*/
+}
+
+.navbar-menu li a::after /*Ändrar designen för linjen under länkarna*/{
+    content: ""; /*Gör så att det inte är någon text på linjen*/
+    transform: translateX(-50%); /*Centrerar linjen i relation till länktexten*/
+    transition: width 0.3s; /*Animation där linjen blir bredare. Animationen varar i 0.3 sekunder.*/
+    opacity: 0; /*Linjen är osynlig när muspekaren inte är på länken*/
+    position: absolute; /*Positionerar linjen i relation till länktexten*/
+    bottom: -2.3em; /*Flyttar linjen till botten av navbaren*/
+    left: 50%;
+    width: 0;
+    height: 0.2em;
+    padding: 0 5px;
+}
+
+.navbar-menu li a:hover::after /*Vad som händer med linjen efter att muspekaren är på en av länkarna*/{
+    width: calc(100% + 18px);
+    opacity: 1;
+    color: white;
+}
